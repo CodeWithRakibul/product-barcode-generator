@@ -28,6 +28,25 @@ import {
 
 type FieldErrorMap = Partial<Record<ConfigField, string>>;
 
+const PROJECT_CAPABILITIES = [
+  {
+    title: "Generation Engine",
+    description: "Timestamp and range generation with strict validation and scalable limits.",
+  },
+  {
+    title: "Rendering Pipeline",
+    description: "Server-side barcode rendering via API route using bwip-js PNG output.",
+  },
+  {
+    title: "Print Workflow",
+    description: "Dedicated print tab with row/column controls, quality presets, and PDF-ready flow.",
+  },
+  {
+    title: "PWA + Mobile",
+    description: "Installable app, offline fallback, and responsive UI for desktop/tablet/mobile.",
+  },
+] as const;
+
 const DEFAULT_FORM_VALUES: BarcodeFormValues = {
   companyName: "",
   prefix: "",
@@ -164,16 +183,32 @@ export function BarcodeGeneratorApp() {
           </CardAction>
           <CardTitle className="text-2xl">Product Barcode Generator</CardTitle>
           <CardDescription>
-            Enterprise-ready POS barcode generation with serial-friendly output and API rendering.
+            Enterprise-ready POS barcode and serial generation system designed for operational
+            speed, print reliability, and future multi-tenant growth.
           </CardDescription>
         </CardHeader>
-        <CardContent className="flex flex-wrap gap-2">
-          <Badge variant="secondary">Next.js 16 App Router</Badge>
-          <Badge variant="secondary">shadcn/ui</Badge>
-          <Badge variant="secondary">bwip-js</Badge>
-          <Badge variant="outline">Multi-tenant ready</Badge>
-          <Badge variant="outline">PDF export ready</Badge>
-          <Badge variant="outline">Thermal print ready</Badge>
+        <CardContent className="space-y-4">
+          <div className="flex flex-wrap gap-2">
+            <Badge variant="secondary">Next.js 16 App Router</Badge>
+            <Badge variant="secondary">shadcn/ui</Badge>
+            <Badge variant="secondary">bwip-js</Badge>
+            <Badge variant="outline">PWA installable</Badge>
+            <Badge variant="outline">Print & Save PDF</Badge>
+            <Badge variant="outline">Thermal POS ready</Badge>
+            <Badge variant="outline">Multi-tenant ready</Badge>
+          </div>
+
+          <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+            {PROJECT_CAPABILITIES.map((item) => (
+              <article
+                key={item.title}
+                className="rounded-lg border border-border bg-muted/30 p-3"
+              >
+                <h3 className="text-sm font-semibold">{item.title}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{item.description}</p>
+              </article>
+            ))}
+          </div>
         </CardContent>
       </Card>
 
