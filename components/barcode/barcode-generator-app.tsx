@@ -8,8 +8,16 @@ import { BarcodeConfigError, generateBarcodes } from "@/lib/generator";
 
 import { BarcodeConfigForm, type BarcodeFormValues } from "@/components/barcode/barcode-config-form";
 import { BarcodePreviewGrid } from "@/components/barcode/barcode-preview-grid";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 type FieldErrorMap = Partial<Record<ConfigField, string>>;
 
@@ -100,6 +108,9 @@ export function BarcodeGeneratorApp() {
     <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 p-4 md:p-8">
       <Card>
         <CardHeader>
+          <CardAction>
+            <ThemeToggle />
+          </CardAction>
           <CardTitle className="text-2xl">Product Barcode Generator</CardTitle>
           <CardDescription>
             Enterprise-ready POS barcode generation with serial-friendly output and API rendering.

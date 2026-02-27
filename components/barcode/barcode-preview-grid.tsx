@@ -48,7 +48,7 @@ export function BarcodePreviewGrid({ values, format }: BarcodePreviewGridProps) 
               className="space-y-3 rounded-lg border border-border bg-muted/30 p-4"
             >
               <p className="truncate text-xs text-muted-foreground">{item.value}</p>
-              <div className="flex min-h-28 items-center justify-center rounded-md border border-border bg-card p-2">
+              <div className="flex min-h-28 items-center justify-center rounded-md border border-border bg-card p-2 dark:bg-white">
                 {item.status === "ready" && item.url ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img

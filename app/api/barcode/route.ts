@@ -53,6 +53,7 @@ const renderToBuffer = async ({
         height,
         includetext: includeText,
         textxalign: "center",
+        backgroundcolor: "FFFFFF",
       },
       (error: string | Error | null, png: Buffer) => {
         if (error) {
